@@ -2,8 +2,6 @@ const std = @import("std");
 const win = std.os.windows;
 const Coff = std.coff.Coff;
 
-const L = std.unicode.utf8ToUtf16LeStringLiteral;
-
 const IMAGE_EXPORT_DIRECTORY = extern struct {
     Characteristics: u32,
     TimeDateStamp: u32,
