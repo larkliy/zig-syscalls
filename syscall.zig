@@ -16,7 +16,7 @@ const IMAGE_EXPORT_DIRECTORY = extern struct {
     AddressOfNameOrdinals: u32,
 };
 
-pub threadlocal var s_instance: SyscallFinder = undefined;
+pub var s_instance: SyscallFinder = undefined;
 
 pub const SyscallFinder = struct {
     allocator: std.mem.Allocator,
