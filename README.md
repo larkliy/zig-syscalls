@@ -2,7 +2,7 @@
 
 ## Features
 - Dynamic SSN discovery by parsing PEB and export tables.
-- SSN caching using FNV1a hashing.
+- SSN caching using 64-bit FNV1a hashing.
 - Supports up to 10 syscall arguments.
 - Manual stack adjustment for x64 calling convention.
 
@@ -16,7 +16,7 @@ s_instance = try SyscallFinder.init(allocator);
 defer s_instance.deinit();
 
 // Execute a syscall by name
-const status = doSyscall("NtOpenProcess", .{
+const status = try doSyscall("NtOpenProcess", .{
     &handle,
     PROCESS_ALL_ACCESS,
     &obj_attr,
